@@ -35,6 +35,7 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: width .2s ease, height .2s ease;
   }
 
   svg {
@@ -207,6 +208,9 @@
   }
 
   &--fb {
+    transform: translateY(10px);
+    opacity: 0;
+
     svg {
       width: 0.8rem;
       height: 1.7rem;
@@ -216,9 +220,18 @@
         height: 17px;
       }
     }
+
+    .social-block--active & {
+      transform: translateY(0);
+      opacity: 1;
+      transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+    }
   }
 
   &--insta {
+    transform: translateY(10px);
+    opacity: 0;
+
     svg {
       width: 1.5rem;
       height: 1.5rem;
@@ -228,9 +241,18 @@
         height: 15px;
       }
     }
+
+    .social-block--active & {
+      transform: translateY(0);
+      opacity: 1;
+      transition: transform 300ms ease-in-out 100ms, opacity 300ms ease-in-out 100ms;
+    }
   }
 
   &--vk {
+    transform: translateY(10px);
+    opacity: 0;
+
     svg {
       width: 1.7rem;
       height: 1rem;
@@ -239,6 +261,12 @@
         width: 10px;
         height: 10px;
       }
+    }
+
+    .social-block--active & {
+      transform: translateY(0);
+      opacity: 1;
+      transition: transform 300ms ease-in-out 200ms, opacity 300ms ease-in-out 200ms;
     }
   }
 }
