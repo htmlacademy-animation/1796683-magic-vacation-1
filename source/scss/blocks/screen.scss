@@ -46,6 +46,12 @@
   color: $c-dark;
   background-color: $c-light;
   z-index: 1;
+  transform: translateY(100%);
+
+  .body--loaded & {
+    transform: translateY(0);
+    transition: transform $appearance-timing-function .5s;
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;
