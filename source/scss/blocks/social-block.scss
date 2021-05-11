@@ -29,13 +29,21 @@
   &::before {
     @include center;
     content: "";
-    width: 100%;
-    height: 100%;
+    width: 0;
+    height: 0;
     border-radius: 50%;
     background-color: $c-light;
-    border: 2px solid $c-light;
+    border-width: 0px;
+    border-style: solid;
+    border-color: $c-light;
     z-index: -1;
-    transition: width .2s ease, height .2s ease;
+
+    .body--loaded & { 
+      width: 100%;
+      height: 100%;
+      border-width: 2px;
+      transition: width .5s cubic-bezier(0.29, 0.24, 0.26, 1.63), height .5s cubic-bezier(0.29, 0.24, 0.26, 1.63), border-width .1s linear .4s;
+    }
   }
 
   svg {
@@ -52,6 +60,7 @@
     &::before {
       width: 112.5%;
       height: 112.5%;
+      transition: width .2s ease, height .2s ease;
     }
   }
 

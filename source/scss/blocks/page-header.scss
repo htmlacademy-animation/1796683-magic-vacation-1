@@ -35,6 +35,14 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  opacity: 0;
+  transform: translateX(-20px);
+
+  .body--loaded & {
+    transform: translateX(0);
+    opacity: 1;
+    transition: opacity $appearance-timing-function .5s, transform $appearance-timing-function .5s;
+  }
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -177,6 +185,12 @@
   font-size: 1.2rem;
   line-height: 1.0418;
   color: $c-light;
+  opacity: 0;
+
+  .body--loaded & {
+    opacity: 1;
+    transition: opacity $appearance-timing-function 1s;
+  }
 
   @media (min-width: $stop-scaling) {
     font-size: 12px;
@@ -267,25 +281,29 @@
     }
 
     &.active {
-      pointer-events: none;
-      &::after {
-        width: 100%;
-        left: 0;
-        right: auto;
+      .body--loaded & {
+        pointer-events: none;
+        &::after {
+          width: 100%;
+          left: 0;
+          right: auto;
+        }
       }
     }
 
     &:hover,
     &:focus {
-      color: $c-purple;
-      outline: none;
-
-      &::after {
-        width: 100%;
-        right: auto;
-        left: 0;
-        opacity: 1;
-        background-color: $c-purple;
+      .body--loaded & {
+        color: $c-purple;
+        outline: none;
+  
+        &::after {
+          width: 100%;
+          right: auto;
+          left: 0;
+          opacity: 1;
+          background-color: $c-purple;
+        }
       }
     }
   }

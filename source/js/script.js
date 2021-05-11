@@ -8,8 +8,10 @@ import result from './modules/result.js';
 import form from './modules/form.js';
 import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
+import body from './modules/body';
 
 // init modules
+body();
 mobileHeight();
 slider();
 menu();
