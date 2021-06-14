@@ -6,10 +6,56 @@ export default class FullPageScroll {
 
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
+    this.fillPage = document.querySelector('.fill-screen');
 
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
     this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
+
+    this.screens = [
+      {
+        next: () => {
+          this.changePageDisplay();
+        },
+      },
+      {
+        prev: () => {
+          this.changePageDisplay();
+        },
+        next: () => {
+          const onTransitionEnd = () => {
+            this.fillPage.removeEventListener('transitionend', onTransitionEnd);
+            this.fillPage.classList.remove('fill-screen--active');
+            this.changeVisibilityDisplay();
+            this.emitChangeDisplayEvent();
+          };
+          this.fillPage.addEventListener('transitionend', onTransitionEnd);
+          this.fillPage.classList.add('fill-screen--active');
+          this.changeActiveMenuItem();
+        },
+      },
+      {
+        prev: () => {
+          this.changePageDisplay();
+        },
+        next: () => {
+          this.changePageDisplay();
+        },
+      },
+      {
+        prev: () => {
+          this.changePageDisplay();
+        },
+        next: () => {
+          this.changePageDisplay();
+        },
+      },
+      {
+        prev: () => {
+          this.changePageDisplay();
+        },
+      }
+    ];
   }
 
   init() {
@@ -20,11 +66,7 @@ export default class FullPageScroll {
   }
 
   onScroll(evt) {
-    const currentPosition = this.activeScreen;
-    this.reCalculateActiveScreenPosition(evt.deltaY);
-    if (currentPosition !== this.activeScreen) {
-      this.changePageDisplay();
-    }
+    this.updateScreen(evt.deltaY);
   }
 
   onUrlHashChanged() {
@@ -70,11 +112,25 @@ export default class FullPageScroll {
     document.body.dispatchEvent(event);
   }
 
-  reCalculateActiveScreenPosition(delta) {
+
+  updateScreen(delta) {
     if (delta > 0) {
-      this.activeScreen = Math.min(this.screenElements.length - 1, ++this.activeScreen);
+      this.nextScreen();
     } else {
-      this.activeScreen = Math.max(0, --this.activeScreen);
+      this.prevScreen();
     }
   }
+
+  nextScreen() {
+    if (this.screens[this.activeScreen].next) {
+      this.screens[this.activeScreen++].next();
+    }
+  }
+
+  prevScreen() {
+    if (this.screens[this.activeScreen].prev) {
+      this.screens[this.activeScreen--].prev();
+    }
+  }
+
 }
