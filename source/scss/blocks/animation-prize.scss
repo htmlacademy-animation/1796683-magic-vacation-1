@@ -159,6 +159,10 @@
     padding-bottom: 58%;
   }
 
+  @media (max-width: $mobile) {
+    width: 80%;
+  }
+
   &__leaf-left {
     position: absolute;
     width: 47%;
