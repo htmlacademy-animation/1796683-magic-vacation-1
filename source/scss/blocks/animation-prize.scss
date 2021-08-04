@@ -1,0 +1,228 @@
+@keyframes leaf-right {
+  0% {
+    transform: rotateZ(-22deg);
+  }
+  12.5% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  37.5% {
+    transform: rotateZ(7deg);
+  }
+  50% {
+    transform: rotateZ(-4deg);
+  }
+
+  62.5% {
+    transform: rotateZ(2deg);
+  }
+
+  75% {
+    transform: rotateZ(-1deg);
+  }
+
+  87.5% {
+    transform: rotateZ(.5deg);
+  }
+
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes leaf-left {
+  0% {
+    transform: rotateZ(37deg);
+  }
+  12.5% {
+    transform: rotateZ(-10deg);
+  }
+  25% {
+    transform: rotateZ(10deg);
+  }
+  37.5% {
+    transform: rotateZ(-7deg);
+  }
+  50% {
+    transform: rotateZ(4deg);
+  }
+
+  62.5% {
+    transform: rotateZ(-2deg);
+  }
+
+  75% {
+    transform: rotateZ(1deg);
+  }
+
+  87.5% {
+    transform: rotateZ(-.5deg);
+  }
+
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes branch {
+  0% {
+    transform: rotateZ(-14deg);
+  }
+  12.5% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  37.5% {
+    transform: rotateZ(7deg);
+  }
+  50% {
+    transform: rotateZ(-4deg);
+  }
+
+  62.5% {
+    transform: rotateZ(2deg);
+  }
+
+  75% {
+    transform: rotateZ(-1deg);
+  }
+
+  87.5% {
+    transform: rotateZ(.5deg);
+  }
+
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes suitcase {
+  0% {
+    transform: translateX(-5vw) translateY(50vh) scale(0);
+  }
+
+  100% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+}
+
+@keyframes flamingo {
+  0% {
+    transform: translateY(50vh) rotateZ(-10deg);
+  }
+  12.5% {
+    transform: translateY(-1vh) rotateZ(2deg);
+  }
+  25% {
+    transform: translateY(1vh) rotateZ(-2deg);
+  }
+  37.5% {
+    transform: translateY(-1vh) rotateZ(2deg);
+  }
+  50% {
+    transform: translateY(1vh) rotateZ(-2deg);
+  }
+  62.5% {
+    transform: translateY(-1vh) rotateZ(1deg);
+  }
+  75% {
+    transform: translateY(1vh) rotateZ(-1deg);
+  }
+  87.5% {
+    transform: translateY(-1vh) rotateZ(1deg);
+  }
+  100% {
+    transform: translateY(1vh) rotateZ(0deg);
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animation-prize {
+  position: relative;
+  width: 42%;
+  transform: translateY(27%) translateX(-4.5%);
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 58%;
+  }
+
+  &__leaf-left {
+    position: absolute;
+    width: 47%;
+    right: 55%;
+    bottom: 2%;
+    transform-origin: 94.62% 41.9%;
+    animation-name: appear, leaf-left;
+    animation-delay: .4s, .4s;
+    animation-duration: .5s, 3s;
+    animation-timing-function: ease-in, linear;
+    animation-fill-mode: both, both;
+  }
+
+  &__leaf-right {
+    position: absolute;
+    width: 46%;
+    left: 55%;
+    bottom: 25%;
+    transform-origin: 13.62% 69.73%;
+    animation-name: appear, leaf-right;
+    animation-delay: .4s, .4s;
+    animation-duration: .5s, 3s;
+    animation-timing-function: ease-in, linear;
+    animation-fill-mode: both, both;
+  }
+
+  &__branch {
+    position: absolute;
+    width: 52%;
+    left: 56%;
+    bottom: 14%;
+    transform-origin: 0% 78.61%;
+    animation-name: appear, branch;
+    animation-delay: .4s, .4s;
+    animation-duration: .5s, 3s;
+    animation-timing-function: ease-in, linear;
+    animation-fill-mode: both, both;
+  }
+
+  &__suitcase {
+    position: absolute;
+    width: 39%;
+    left: 37%;
+    bottom: 1%;
+    animation-name: suitcase;
+    animation-duration: .5s;
+    animation-timing-function: cubic-bezier(.33,.35,.76,1.39);
+    animation-fill-mode: both;
+  }
+
+  &__flamingo {
+    position: absolute;
+    width: 27%;
+    left: 21%;
+    bottom: 8%;
+    transform-origin: 72% 59%;
+    animation-name: appear, flamingo;
+    animation-duration: .5s, 4s;
+    animation-timing-function: ease-in, linear;
+    animation-fill-mode: both, both;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
