@@ -134,8 +134,43 @@
 }
 
 .form--result {
+  justify-content: flex-end;
+
   .form__field {
+    transform: scale(1, 1);
+    width: 58px;
+    padding: 0;
+    opacity: 0;
+    &::placeholder {
+      opacity: 0;
+    }
+  }
+
+  .form__button {
+    flex: 0 0 auto;
+    opacity: 0;
+    color: #ffffff;
+  }
+}
+
+.form--result-visible {
+  .form__button {
+    opacity: 1;
+    color: $c-dark;
+    transition-property: opacity, color;
+    transition-duration: 300ms, 100ms;
+    transition-timing-function: linear, linear;
+    transition-delay: 0ms, 300ms;
+  }
+
+  .form__field {
+    opacity: 1;
     width: calc(100% - 31rem);
+    padding: 0 5.6rem;
+    transition-property: opacity, padding, width;
+    transition-duration: 0ms, 0ms, 500ms;
+    transition-delay: 300ms, 700ms, 300ms;
+    transition-timing-function: linear;
 
     @media (min-width: $stop-scaling) {
       width: calc(100% - 310px);
@@ -152,5 +187,11 @@
     @media (max-width: $mobile) and (orientation: landscape) {
       width: calc(100% - 5rem);
     }
+
+    &::placeholder {
+      opacity: 1;
+      transition: opacity 100ms linear 700ms;
+    }
+
   }
 }
