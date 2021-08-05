@@ -29,4 +29,8 @@ export default () => {
       });
     }
   }
+
+  document.querySelector(`.animation-prize__suitcase`).addEventListener(`animationend`, (event) => {
+    event.currentTarget.closest(`.result`).querySelector(`.form`).classList.add(`form--result-visible`);
+  });
 };

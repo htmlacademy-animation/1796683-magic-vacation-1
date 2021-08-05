@@ -240,6 +240,24 @@
   }
 }
 
+.result__image-prize {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+
+  @media (orientation: portrait) {
+    left: -1rem;
+    right: -1rem;
+  }
+}
+
 .result--negative {
   .result__title {
     margin-top: 9.5rem;
