@@ -39,14 +39,18 @@ export default class FullPageScroll {
           this.changePageDisplay();
         },
         next: () => {
-          const footerNote = document.querySelector(`.screen--prizes .screen__footer-note`);
-          const onTransitionEnd = () => {
-            footerNote.removeEventListener(`transitionend`, onTransitionEnd);
+          if (window.matchMedia(`(min-width: 1024px)`).matches) {
+            const footerNote = document.querySelector(`.screen--prizes .screen__footer-note`);
+            const onTransitionEnd = () => {
+              footerNote.removeEventListener(`transitionend`, onTransitionEnd);
+              this.changePageDisplay();
+              footerNote.classList.remove(`screen__footer-note-fade-out`);
+            };
+            footerNote.addEventListener(`transitionend`, onTransitionEnd);
+            footerNote.classList.add(`screen__footer-note-fade-out`);
+          } else {
             this.changePageDisplay();
-            footerNote.classList.remove(`screen__footer-note-fade-out`);
-          };
-          footerNote.addEventListener(`transitionend`, onTransitionEnd);
-          footerNote.classList.add(`screen__footer-note-fade-out`);
+          }
         },
       },
       {
