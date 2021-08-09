@@ -39,7 +39,14 @@ export default class FullPageScroll {
           this.changePageDisplay();
         },
         next: () => {
-          this.changePageDisplay();
+          const footerNote = document.querySelector(`.screen--prizes .screen__footer-note`);
+          const onTransitionEnd = () => {
+            footerNote.removeEventListener(`transitionend`, onTransitionEnd);
+            this.changePageDisplay();
+            footerNote.classList.remove(`screen__footer-note-fade-out`);
+          };
+          footerNote.addEventListener(`transitionend`, onTransitionEnd);
+          footerNote.classList.add(`screen__footer-note-fade-out`);
         },
       },
       {

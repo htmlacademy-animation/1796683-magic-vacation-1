@@ -1,6 +1,20 @@
+@keyframes disclaimer-appear {
+  0% {
+    color: $c-light
+  }
+  100% {
+    opacity: $c-dark;
+  }
+}
+
 .disclaimer {
   color: $c-dark;
   background-color: $c-light;
+
+  animation-name: disclaimer-appear;
+  animation-duration: .3s;
+  animation-fill-mode: both;
+  animation-timing-function: ease;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     font-weight: 400;
