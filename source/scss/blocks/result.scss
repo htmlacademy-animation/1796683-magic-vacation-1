@@ -258,6 +258,27 @@
   }
 }
 
+
+@keyframes result-button-appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes result-button-roll {
+  0% {
+    transform: translateX(40px) rotateZ(360deg);
+  }
+
+  100% {
+    transform: translateX(0) rotateZ(0);
+  }
+}
+
+
 .result--negative {
   .result__title {
     margin-top: 9.5rem;
@@ -283,6 +304,20 @@
 
     @media (max-width: $mobile) and (orientation: landscape) {
       width: 45rem;
+    }
+  }
+
+  .result__button {
+    animation-name: result-button-appear;
+    animation-duration: .5s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+
+    span {
+      animation-name: result-button-roll;
+      animation-duration: .5s;
+      animation-fill-mode: both;
+      animation-timing-function: ease-in-out;  
     }
   }
 }
