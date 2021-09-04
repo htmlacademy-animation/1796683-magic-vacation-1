@@ -61,10 +61,15 @@ export default () => {
             } else if (storySlider.activeIndex === 6) {
               sliderContainer.style.backgroundImage = `url("img/slide4.jpg")`;
             }
+            storySlider.el.dispatchEvent(new CustomEvent(`slideChanged`, {
+              detail: {
+                activeIndex: storySlider.activeIndex
+              }
+            }));
           },
           resize: () => {
             storySlider.update();
-          }
+          },
         },
         observer: true,
         observeParents: true,

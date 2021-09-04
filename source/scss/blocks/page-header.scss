@@ -305,6 +305,24 @@
           background-color: $c-purple;
         }
       }
+      .body--loaded.body--ui-mod-1 & {
+        color: $c-dark;
+        &:after {
+          background-color: $c-dark;
+        }
+      }
+      .body--loaded.body--ui-mod-2 & {
+        color: $c-light-blue;
+        &:after {
+          background-color: $c-light-blue;
+        }
+      }
+      .body--loaded.body--ui-mod-3 & {
+        color: $c-blue;
+        &:after {
+          background-color: $c-blue;
+        }
+      }
     }
   }
 }

@@ -166,6 +166,30 @@
   }
 }
 
+@keyframes slider-prev {
+  0% {
+    transform: translateX(-40px) rotateZ(-360deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0) rotateZ(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slider-next {
+  0% {
+    transform: translateX(40px) rotateZ(360deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0) rotateZ(0);
+    opacity: 1;
+  }
+}
+
 .slider__control {
   @include btn-reset;
   position: relative;
@@ -236,6 +260,31 @@
     opacity: 0.5;
     pointer-events: none;
   }
+
+  &.slider__control--prev {
+    animation-name: slider-prev;
+    animation-duration: .3s;
+    animation-delay: 0.75s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+  }
+
+  &.slider__control--next {
+    animation-name: slider-next;
+    animation-duration: .3s;
+    animation-delay: 0.75s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+  }
+}
+
+@keyframes pagination-appearance {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .slider__pagination.swiper-pagination {
@@ -250,6 +299,11 @@
   font-weight: 400;
   font-size: 2.4rem;
   line-height: 4rem;
+  animation-name: pagination-appearance;
+  animation-duration: .3s;
+  animation-delay: 0.75s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
 
   @media (min-width: $stop-scaling) {
     bottom: 28px;
