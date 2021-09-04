@@ -18,6 +18,18 @@
   color: $c-dark;
   border-radius: 50%;
 
+  .body--ui-mod-1 & {
+    color: $c-purple;
+  }
+
+  .body--ui-mod-2 & {
+    color: $c-blue;
+  }
+
+  .body--ui-mod-3 & {
+    color: $c-light-blue;
+  }
+
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
   }
@@ -62,6 +74,19 @@
       height: 112.5%;
       transition: width .2s ease, height .2s ease;
     }
+
+    .body--ui-mod-1 & {
+      color: $c-dark;
+    }
+
+    .body--ui-mod-2 & {
+      color: $c-light-blue;
+    }
+
+    .body--ui-mod-3 & {
+      color: $c-blue;
+    }
+
   }
 
   &:focus {
@@ -76,6 +101,27 @@
       opacity: 1;
       pointer-events: auto;
     }
+
+    .body--ui-mod-1 & {
+      color: $c-dark;
+      &::before {
+        border-color: $c-dark;
+      }
+    }
+
+    .body--ui-mod-2 & {
+      color: $c-light-blue;
+      &::before {
+        border-color: $c-light-blue;
+      }
+    }
+
+    .body--ui-mod-3 & {
+      color: $c-blue;
+      &::before {
+        border-color: $c-blue;
+      }
+    }
   }
 
   &:active,
@@ -87,6 +133,30 @@
       height: 100%;
       background-color: $c-purple;
       border-color: $c-purple;
+    }
+
+    .body--ui-mod-1 & {
+      color: $c-light;
+      &::before {
+        background-color: $c-dark;
+        border-color: $c-dark;
+      }
+    }
+
+    .body--ui-mod-2 & {
+      color: $c-light;
+      &::before {
+        background-color: $c-light-blue;
+        border-color: $c-light-blue;
+      }
+    }
+
+    .body--ui-mod-3 & {
+      color: $c-light;
+      &::before {
+        background-color: $c-blue;
+        border-color: $c-blue;
+      }
     }
   }
 }

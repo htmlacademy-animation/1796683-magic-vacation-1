@@ -4,7 +4,6 @@ export default () => {
     0: `body--ui-mod-1`,
     2: `body--ui-mod-2`,
     4: `body--ui-mod-3`,
-    6: `body--ui-mod-3`,
   };
 
   window.addEventListener(`load`, () => {
